@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MH — สำรวจพื้นที่</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- แถบด้านบน เริ่ม -->
+<div class="topbar">
+  <div class="brand"><span class="seal">M</span> MH</div>
+  <div class="navlinks">
+    <button data-tab="home" class="active">หน้าหลัก</button>
+    <button data-tab="history">ประวัติการสำรวจ</button>
+    <button data-tab="items">ไอเทม</button>
+  </div>
+</div>
+<!-- แถบด้านบน จบ -->
+
+<!-- หน้าหลัก เริ่ม -->
+<div class="page" id="tab-home">
+  <div class="hero">
+    <h1>สำรวจพื้นที่</h1>
+    <div class="sub">กรอกข้อมูลตัวละคร เลือกบ้าน และเลือกพื้นที่ที่จะไปสำรวจโดยมีเงื่อนไขคือ</div>
+    <p>ไม่อนุญาติให้กดสำรวจหลาย ๆ ครั้ง อนุญาติให้แค่ครั้งเดียว ถ้าตรวจแล้วเจอกูจะเจาะ ip บ้านมึง<p>
+  </div>
+
+  <div class="card form-card">
+    <h2>กรอกข้อมูลตัวละคร</h2>
+    <div class="field">
+      <label>ชื่อ-นามสกุลตัวละคร *</label>
+      <input id="charName" type="text" placeholder="เช่น อาหวัง คนพี่">
+    </div>
+    <div class="row2">
+      <div class="field">
+        <label>หอที่อาศัย *</label>
+        <select id="charHouse">
+          <option value="">— เลือกที่อยู่ —</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>พื้นที่ที่ต้องการสำรวจ *</label>
+        <select id="charArea">
+          <option value="">— เลือกพื้นที่ —</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="center">
+    <button class="btn btn-primary" id="exploreBtn">เริ่มสำรวจ</button>
+  </div>
+
+  <div id="warnBox"></div>
+  <div id="resultBox"></div>
+</div>
+<!-- หน้าหลัก จบ -->
+
+<!-- ============ HISTORY ============ -->
+<div class="page" id="tab-history" style="display:none;">
+  <h1 style="text-align:center;font-size:26px;margin-bottom:24px;">ประวัติการสำรวจ</h1>
+  <div class="search-box"><input id="historySearch" placeholder="ค้นหาตัวละคร..."></div>
+  <div id="historyTableWrap"></div>
+</div>
+
+<!-- ============ ITEMS ============ -->
+<div class="page" id="tab-items" style="display:none;">
+  <h1 style="text-align:center;font-size:26px;margin-bottom:24px;">รวมไอเทมทั้งหมด</h1>
+  <div class="igrid" id="itemsGrid"></div>
+</div>
+
+<footer>MH — ระบบสำรวจพื้นที่ · สร้างขึ้นเพื่อทดสอบการทำเว็บโง่ ๆ โดยไอหวัง</footer>
+
+<!-- ลำดับสำคัญ: data.js ต้องโหลดก่อน script.js เสมอ
+     เพราะ script.js เรียกใช้ตัวแปร HOUSES / ITEM_LIBRARY / AREAS ที่มาจาก data.js -->
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
